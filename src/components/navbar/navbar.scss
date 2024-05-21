@@ -53,7 +53,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    background-color: #fcf5f3;
+
     height: 100%;
 
     @include md {
@@ -86,24 +86,13 @@ nav {
 
       .profile {
         padding: 12px 24px;
-        background-color: #fece51;
+        background-color: #0061E0;
         cursor: pointer;
         border: none;
+        color: white;
         position: relative;
 
-        .notification {
-          position: absolute;
-          top: -8px;
-          right: -8px;
-          background-color: red;
-          color: white;
-          border-radius: 50%;
-          width: 26px;
-          height: 26px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
+
 
       }
     }

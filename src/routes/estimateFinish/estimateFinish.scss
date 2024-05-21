@@ -1,18 +1,79 @@
 @import "../../responsive.scss";
 
-.homePage {
+button {
+  padding: 16px 36px;
+      border: 1px solid #999;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      background-color: white;
+      text-transform: capitalize;
+      margin: 10px;
+      &.active {
+        background-color: #0061E0;
+        color: white;
+      }
+}
+.areaContainer {
+  background: white;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 5px;
+  padding: 0.625rem;
+  border-radius: 0.5rem;
+  margin: 2.5rem auto;
+  width: 100% ;
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   height: 100%;
-
+  .chartWrapper{
+    flex: 3;
+    margin-left: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    @include sm {
+      flex-direction: column;
+    }
+  }
   .mapContainer {
-    flex: 2;
+
+    flex: 5;
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     height: 100%;
     background-color: #fcf5f3;
+    .buttonWrapper{
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      width: 100%;
+    }
   }
+}
+
+.homePage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
   .textContainer {
-    flex: 3;
-
+    display: flex;
+    margin-top: 50px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    @include sm{
+      margin-top: 400px;
+    }
     .wrapper {
       padding-right: 100px;
       display: flex;
@@ -32,6 +93,7 @@
       @include sm {
         justify-content: flex-start;
       }
+
 
       .title {
         font-size: 64px;
@@ -85,5 +147,17 @@
         width: 105%;
       }
     }
+  }
+}
+
+.tabContainer {
+  @include sm {
+    display: none;
+  }
+}
+
+.mapContainer{
+  @include sm {
+    display: none;
   }
 }

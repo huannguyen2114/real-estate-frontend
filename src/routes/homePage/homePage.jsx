@@ -11,8 +11,11 @@ function HomePage() {
     <div className="homePage">
       <div className="textContainer">
         <div className="wrapper">
-          <h1 className="title">Discover A Place you'll love to live</h1>
-          <p>Discover Your Perfect Home with Data-Driven Insights! Navigate the Real Estate Market Confidently with EstateTopia.
+          <h1 className="title">Discover A Place you love to live</h1>
+          <p>
+
+              Discover Your Perfect Home with Data-Driven Insights! Navigate the
+              Real Estate Market Confidently with EstateTopia.
           </p>
           <SearchBar />
           <div className="boxes">
