@@ -17,7 +17,7 @@ function Estimate() {
     e.preventDefault();
     const formData = new FormData(e.target);
     const request = axios.create({
-      baseURL: "http://127.0.0.1:5000/api/estate/estimate-price",
+      baseURL: "https://estatopia-model.up.railway.app/api/estate/estimate-price",
       withCredentials: true,
     });
     console.log(location);

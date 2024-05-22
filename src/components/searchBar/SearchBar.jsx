@@ -35,16 +35,18 @@ function SearchBar() {
       </div>
       <form>
         <input
-          type="text"
-          name="city"
-          placeholder="City"
+          type="number"
+          name="area"
+          min={0}
+          max={1000000}
+          placeholder="Area"
           onChange={handleChange}
         />
         <input
           type="number"
           name="minPrice"
           min={0}
-          max={10000000}
+          max={1000000000000000}
           placeholder="Min Price"
           onChange={handleChange}
         />
@@ -52,7 +54,7 @@ function SearchBar() {
           type="number"
           name="maxPrice"
           min={0}
-          max={10000000}
+          max={10000000000000000}
           placeholder="Max Price"
           onChange={handleChange}
         />

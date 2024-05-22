@@ -25,14 +25,17 @@ function SinglePage() {
       setSaved((prev) => !prev);
     }
   };
-  const substring = post.images.slice(2, -1);
+  const substring = (post.images ?? "").slice(2, -2);
   const array = substring.split("', '");
-
+  if (!array[0]) {
+    array[0] = ("/defaultPic.jpeg");
+  }
+  console.log("wtf" ,array);
   return (
     <div className="singlePage">
       <div className="details">
         <div className="wrapper">
-          <Slider images={array ? array : "/defaultPic.jpeg"} />
+          <Slider images={array} />
           <div className="info">
             <div className="top">
               <div className="post">
@@ -103,7 +106,7 @@ function SinglePage() {
           </div>
           <p className="title">Location</p>
           <div className="mapContainer">
-            <Map items={[post]} />
+            {post.latitude && post.longitude ? <Map items={[post]}/> : <div>No Information</div>}
           </div>
           <div className="buttons">
 

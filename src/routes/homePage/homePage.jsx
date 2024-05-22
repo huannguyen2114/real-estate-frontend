@@ -1,14 +1,17 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import SearchBar from "../../components/searchBar/SearchBar";
-import "./homePage.scss";
+import "./homePage.scss"
 import { AuthContext } from "../../context/AuthContext";
+import FunctionalMap from "../../components/funtionalMap/functionalMap";
 
 function HomePage() {
 
-  const {currentUser} = useContext(AuthContext)
+  const {currentUser} = useContext(AuthContext);
+  const [location, setLocation] = useState(null);
+
 
   return (
-    <div className="homePage">
+    <div className="home">
       <div className="textContainer">
         <div className="wrapper">
           <h1 className="title">Discover A Place you love to live</h1>
@@ -34,8 +37,8 @@ function HomePage() {
           </div>
         </div>
       </div>
-      <div className="imgContainer">
-        <img src="/bg.png" alt="" />
+      <div className="mapContainer">
+        <FunctionalMap setLocation={setLocation} />
       </div>
     </div>
   );

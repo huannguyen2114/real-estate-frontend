@@ -1,8 +1,12 @@
 @import "../../responsive.scss";
 
-.homePage {
+.home {
   display: flex;
   height: 100%;
+  flex-direction: row;
+  @include sm {
+    flex-direction: column;
+  }
 
   .textContainer {
     flex: 3;
@@ -15,15 +19,15 @@
       gap: 50px;
       height: 100%;
 
-      @include lg{
+      @include lg {
         padding-right: 50px;
       }
 
-      @include md{
+      @include md {
         padding: 0;
       }
 
-      @include sm{
+      @include sm {
         justify-content: flex-start;
       }
 
@@ -59,25 +63,10 @@
     }
   }
 
-  .imgContainer {
+  .mapContainer {
     flex: 2;
     background-color: #fcf5f3;
-    position: relative;
-    display: flex;
-    align-items: center;
-
-    @include md {
-      display: none;
-    }
-
-    img {
-      width: 115%;
-      position: absolute;
-      right: 0;
-
-      @include lg {
-        width: 105%;
-      }
-    }
+    height: 100%;
+    width: 100%;
   }
 }

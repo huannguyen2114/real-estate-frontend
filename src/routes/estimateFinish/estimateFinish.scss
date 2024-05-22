@@ -59,7 +59,7 @@ button {
   }
 }
 
-.homePage {
+.estimatePage {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -151,6 +151,27 @@ button {
 }
 
 .tabContainer {
+  .button {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #333;
+    cursor: pointer;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+
+    &.active {
+      background-color:teal;
+      color: #fff;
+    }
+  }
+  .applyButton {
+    background-color: #0061E0;
+    color: white;
+  }
+
   @include sm {
     display: none;
   }

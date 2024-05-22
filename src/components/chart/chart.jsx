@@ -1,9 +1,9 @@
-import { listData } from "../../lib/dummydata";
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import { Pie } from "@ant-design/plots";
 
-const DemoPie = () => {
+const DemoPie = ({someData}) => {
+  console.log("hello shit", someData);
   const [chartSize, setChartSize] = useState({ width: 400, height: 300 });
 
   useEffect(() => {
@@ -29,13 +29,27 @@ const DemoPie = () => {
     };
   }, []);
 
-  const categorizedData = listData.reduce((acc, item) => {
-    const priceRange =
-      item.Price <= 5 ? "1-5" : item.Price <= 10 ? "5-10" : ">10";
+  const categorizedData = someData.reduce((acc, item) => {
+    const price = item.price;
+    let priceRange;
+
+    if (price >= 1000000 && price < 3000000) {
+      priceRange = "1-3mil";
+    } else if (price >= 3000000 && price < 5000000) {
+      priceRange = "3-5mil";
+    } else if (price >= 5000000 && price < 10000000) {
+      priceRange = "5-10mil";
+    } else if (price >= 10000000 && price < 15000000) {
+      priceRange = "10-15mil";
+    } else if (price >= 15000000 && price < 20000000) {
+      priceRange = "15-20mil";
+    } else {
+      priceRange = ">20mil";
+    }
+
     acc[priceRange] = (acc[priceRange] || 0) + 1;
     return acc;
   }, {});
-
   const data = Object.entries(categorizedData).map(([name, value]) => ({
     name,
     value,
@@ -55,7 +69,7 @@ const DemoPie = () => {
         style: { fontSize: 10, fontWeight: "bold" },
       },
       {
-        text: (d, i, data) => (i < data.length - 3 ? d.value : ""),
+        text: "value",
         style: { fontSize: 9, dy: 12 },
       },
     ],
@@ -63,7 +77,7 @@ const DemoPie = () => {
       {
         type: 'text',
         style: {
-          text: `${listData.length}\n Data`,
+          text: `${someData.length}\n Data`,
           x: '50%',
           y: '50%',
           textAlign: 'center',
@@ -79,7 +93,7 @@ const DemoPie = () => {
     },
     scale: {
       color: {
-        palette: "spectral",
+        palette: "tableau10",
         offset: (t) => t * 0.8 + 0.1,
       },
     },

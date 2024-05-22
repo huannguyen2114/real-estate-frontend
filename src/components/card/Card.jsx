@@ -3,12 +3,15 @@ import "./card.scss";
 import numberWithCommas from "../../lib/utils";
 
 function Card({ item }) {
-  const substring = item.images.slice(2, -1);
+  const substring = (item.images ?? "").slice(2, -2);
   const array = substring.split("', '");
+  if (!array[0]) {
+    array[0] = ("/defaultPic.jpeg");
+  }
   return (
     <div className="card">
       <Link to={`/${item.id}`} className="imageContainer">
-        <img src={array[0] ? array[0] : "/defaultPic.jpeg"} alt="" />
+        <img src={array[0]} alt="" />
       </Link>
       <div className="textContainer">
         <h2 className="title">

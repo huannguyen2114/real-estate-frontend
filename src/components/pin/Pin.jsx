@@ -3,13 +3,16 @@ import "./pin.scss";
 import { Link } from "react-router-dom";
 import numberWithCommas from "../../lib/utils";
 function Pin({ item }) {
-  const substring = item.images.slice(2, -1);
+  const substring = (item.images ?? "").slice(2, -2);
   const array = substring.split("', '");
+  if (!array[0]) {
+    array[0] = ("/defaultPic.jpeg");
+  }
   return (
     <Marker position={[item.latitude, item.longitude]}>
       <Popup>
         <div className="popupContainer">
-          <img src={array[0] ? array[0] : "/defaultPic.jpeg"} alt="" />
+          <img src={array[0]} alt="" />
           <div className="textContainer">
             <Link to={`/${item.id}`}>
               {item.ownerEmail ? item.ownerEmail : "Anonymous"}
@@ -17,7 +20,7 @@ function Pin({ item }) {
             {item.bedroom > 0 && <span> {item.bedroom} bedrooms</span>}
             {item.toilet > 0 && <span>{item.toilet} bathrooms</span>}
             <b>
-              {item.price !== -1
+              { item.price !== -1
                 ? `₫ ${numberWithCommas(item.price)}`
                 : "Price Negotiation"}
             </b>

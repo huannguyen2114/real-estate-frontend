@@ -9,7 +9,7 @@ function Navbar() {
   const { currentUser } = useContext(AuthContext);
 
 
-  if (currentUser) fetch();
+
 
   return (
     <nav>
