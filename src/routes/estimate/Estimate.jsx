@@ -27,14 +27,11 @@ function Estimate() {
         parseFloat(inputs.size),
         parseFloat(inputs.frontageArea),
         parseFloat(inputs.entranceArea),
-        parseInt(inputs.floor),
         parseInt(inputs.bedroom),
         parseInt(inputs.bathroom),
-        parseInt(inputs.legalStatus),
         parseInt(inputs.furniture),
         location.x,
         location.y,
-        parseInt(inputs.type),
       ],
     ]
     try {
@@ -53,7 +50,7 @@ function Estimate() {
   return (
     <div className="newPostPage">
       <div className="formContainer">
-        <h1>Estimate Your Home</h1>
+        <h1>Estimate Your Rented Accomodation</h1>
         <div className="wrapper">
           <form onSubmit={handleSubmit}>
             <div className="item">
@@ -79,10 +76,6 @@ function Estimate() {
               />
             </div>
             <div className="item">
-              <label htmlFor="floor">Floor</label>
-              <input min={0} id="floor" name="floor" type="number" />
-            </div>
-            <div className="item">
               <label htmlFor="bedroom">Bedroom Number</label>
               <input min={0} id="bedroom" name="bedroom" type="number" />
             </div>
@@ -91,27 +84,11 @@ function Estimate() {
               <input min={0} id="bathroom" name="bathroom" type="number" />
             </div>
             <div className="item">
-              <label htmlFor="legalStatus">Legal Status</label>
-              <select name="legalStatus">
-                <option value="1">Có sổ hồng</option>
-                <option value="0">Không sổ hồng</option>
-              </select>
-            </div>
-            <div className="item">
               <label htmlFor="furniture">Furniture</label>
               <select name="furniture">
                 <option value="1">Cơ bản</option>
                 <option value="2">Cao cấp</option>
                 <option value="0">Không nội thất</option>
-              </select>
-            </div>
-            <div className="item">
-              <label htmlFor="type">Type</label>
-              <select name="type">
-                <option value="0" defaultChecked>
-                  Rent
-                </option>
-                <option value="1">Buy</option>
               </select>
             </div>
             <button className="sendButton" style={{ height: "50px" }}>
