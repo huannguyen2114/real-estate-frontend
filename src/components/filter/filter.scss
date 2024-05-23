@@ -1,3 +1,5 @@
+@import "../../responsive.scss";
+
 .filter {
   display: flex;
   flex-direction: column;
@@ -28,6 +30,10 @@
   }
 
   .top {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
     input {
       width: 100%;
     }
@@ -38,6 +44,7 @@
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 20px;
+
 
     button {
       width: 100px;

@@ -64,7 +64,7 @@
             }
             .price {
               padding: 5px;
-              background-color: rgba(254, 205, 81, 0.438);
+              background-color: rgba(0, 97, 224, 0.438);
               border-radius: 5px;
               width: max-content;
               font-size: 20px;
@@ -79,7 +79,7 @@
             gap: 20px;
             padding: 0px 50px;
             border-radius: 10px;
-            background-color: rgba(254, 205, 81, 0.209);
+            background-color: rgba(0, 97, 224, 0.209);
             font-weight: 600;
 
             @include sm {
@@ -104,7 +104,7 @@
   }
   .features {
     flex: 2;
-    background-color: #fcf5f3;
+    background-color: rgba(0, 97, 224, 0.209);
     height: 100%;
     overflow-y: scroll;
 
@@ -141,7 +141,7 @@
         gap: 10px;
 
         img {
-          background-color: rgba(254, 205, 81, 0.209);
+          background-color: rgba(0, 97, 224, 0.209);
         }
 
         .featureText {

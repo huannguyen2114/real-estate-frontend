@@ -5,12 +5,14 @@ import { useSearchParams } from "react-router-dom";
 function Filter() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [query, setQuery] = useState({
-    type: searchParams.get("type") || "",
-    city: searchParams.get("city") || "",
+    estateType: searchParams.get("type") || "",
     property: searchParams.get("property") || "",
     minPrice: searchParams.get("minPrice") || "",
     maxPrice: searchParams.get("maxPrice") || "",
     bedroom: searchParams.get("bedroom") || "",
+    minArea: searchParams.get("minArea") || "",
+    maxArea: searchParams.get("maxArea") || "",
+    floor: searchParams.get("floor") || "",
   });
 
   const handleChange = (e) => {
@@ -31,14 +33,36 @@ function Filter() {
       </h1>
       <div className="top">
         <div className="item">
-          <label htmlFor="city">Location</label>
+          <label htmlFor="minArea">Min Area</label>
           <input
-            type="text"
-            id="city"
-            name="city"
-            placeholder="City Location"
+            type="number"
+            id="minArea"
+            name="minArea"
+            placeholder="min Area"
             onChange={handleChange}
-            defaultValue={query.city}
+            defaultValue={query.minArea}
+          />
+        </div>
+        <div className="item">
+          <label htmlFor="maxArea">Max Area</label>
+          <input
+            type="number"
+            id="maxArea"
+            name="maxArea"
+            placeholder="max Area"
+            onChange={handleChange}
+            defaultValue={query.maxArea}
+          />
+        </div>
+        <div className="item">
+          <label htmlFor="Floor">Floor</label>
+          <input
+            type="number"
+            id="floor"
+            name="floor"
+            placeholder="Floor"
+            onChange={handleChange}
+            defaultValue={query.floor}
           />
         </div>
       </div>

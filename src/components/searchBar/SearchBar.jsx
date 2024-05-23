@@ -4,13 +4,20 @@ import { Link } from "react-router-dom";
 
 const types = ["buy", "rent"];
 
-function SearchBar() {
+function SearchBar({ location }) {
+  let lat, lot;
+  if (location) {
+    lat = location.x;
+    lot = location.y;
+  }
+
   const [query, setQuery] = useState({
     type: "buy",
-    city: "",
+    area: 0,
     minPrice: 0,
     maxPrice: 0,
   });
+  console.log(query);
 
   const switchType = (val) => {
     setQuery((prev) => ({ ...prev, type: val }));
@@ -59,7 +66,11 @@ function SearchBar() {
           onChange={handleChange}
         />
         <Link
-          to={`/list?estateType=${query.type}&area=${query.city}&minPrice=${query.minPrice}&maxPrice=${query.maxPrice}`}
+          to={`/list?estateType=${query.type}${
+            query.area ? `&area=${query.area}` : ""
+          }${query.minPrice ? `&minPrice=${query.minPrice}` : ""}${
+            query.maxPrice ? `&maxPrice=${query.maxPrice}` : ""
+          }${lat ? `&longitude=${lat}` : ""}${lot ? `&latitude=${lot}` : ""}`}
         >
           <button>
             <img src="/search.png" alt="" />
