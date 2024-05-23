@@ -7,6 +7,7 @@ import LayerMap from "../../components/layerMap/layerMap";
 import List from "../../components/list/List";
 import DemoPie from "../../components/chart/chart";
 import { Layer } from "leaflet";
+import Map from "../../components/map/Map";
 
 function EstimateFinish() {
   const location = useLocation();
@@ -41,10 +42,8 @@ function EstimateFinish() {
   // API request
   const newQuery = Object.assign(
     sameLocation && {
-      minLatitude: arr[6] - 40,
-      maxLatitude: arr[6] + 40,
-      minLongitude: arr[7] - 40,
-      maxLongitude: arr[7] + 40,
+      longitude: arr[7],
+      latitude: arr[6],
     },
     sameArea && {
       minArea: arr[0] - 5,
@@ -82,67 +81,66 @@ function EstimateFinish() {
           </p>
           <p>For reference, you can see our statistic below:</p>{" "}
         </div>
-      </div>
-      <div className="tabContainer">
-        <button
-          className={`button ${sameLocation ? "active" : ""}`}
-          onClick={() => handleCheckboxChange("sameLocation")}
-        >
-          Same Location
-        </button>
-        <button
-          className={`button ${sameArea ? "active" : ""}`}
-          onClick={() => handleCheckboxChange("sameArea")}
-        >
-          Same Area
-        </button>
-        <button
-          className={`button ${sameRooms ? "active" : ""}`}
-          onClick={() => handleCheckboxChange("sameRooms")}
-        >
-          Same Rooms
-        </button>
-        <button className="applyButton" onClick={handleAPIRequest}>
-          Apply
-        </button>
-      </div>
-      <div className="areaContainer">
-        <div className="mapContainer">
-          <div className="buttonWrapper">
-            <button
-              className={showMapView ? "active" : ""}
-              onClick={() => setShowMapView(true)}
-            >
-              Map View
-            </button>
-            <button
-              className={!showMapView ? "active" : ""}
-              onClick={() => setShowMapView(false)}
-            >
-              List View
-            </button>
-          </div>
-
-          {showMapView ? (
-            <div>
-              {showMapView && postPromiseData && postPromiseData.data && (
-                <LayerMap items={postPromiseData.data} />
-              )}
-            </div>
-          ) : (
-            <div>
-              {postPromiseData && postPromiseData.data && (
-                <List posts={postPromiseData.data} />
-              )}
-            </div>
-          )}
+        <div className="tabContainer">
+          <button
+            className={`button ${sameLocation ? "active" : ""}`}
+            onClick={() => handleCheckboxChange("sameLocation")}
+          >
+            Same Location
+          </button>
+          <button
+            className={`button ${sameArea ? "active" : ""}`}
+            onClick={() => handleCheckboxChange("sameArea")}
+          >
+            Same Area
+          </button>
+          <button
+            className={`button ${sameRooms ? "active" : ""}`}
+            onClick={() => handleCheckboxChange("sameRooms")}
+          >
+            Same Rooms
+          </button>
+          <button className="applyButton" onClick={handleAPIRequest}>
+            Apply
+          </button>
         </div>
         <div className="chartWrapper">
-          {/* {postPromiseData && postPromiseData.data && <h1 className="title">Statistic</h1>} */}
-          {postPromiseData && postPromiseData.data && (
-            <DemoPie someData={postPromiseData?.data} />
-          )}
+            {/* {postPromiseData && postPromiseData.data && <h1 className="title">Statistic</h1>} */}
+            {postPromiseData && postPromiseData.data && (
+              <DemoPie someData={postPromiseData?.data} style={{zIndex: -9999}}/>
+            )}
+          </div>
+      </div>
+
+      <div className="areaContainer">
+        <div className="buttonWrapper">
+          <button
+            className={showMapView ? "active" : ""}
+            onClick={() => setShowMapView(true)}
+          >
+            Map View
+          </button>
+          <button
+            className={!showMapView ? "active" : ""}
+            onClick={() => setShowMapView(false)}
+          >
+            List View
+          </button>
         </div>
+
+        {showMapView ? (
+          <div className="mapContainer">
+            {showMapView && postPromiseData && postPromiseData.data && (
+              <LayerMap items={postPromiseData.data} style={{width:100}}/>
+            )}
+          </div>
+        ) : (
+          <div>
+            {postPromiseData && postPromiseData.data && (
+              <List posts={postPromiseData.data} />
+            )}
+          </div>
+        )}
       </div>
     </div>
   );

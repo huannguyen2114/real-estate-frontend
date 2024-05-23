@@ -6,7 +6,6 @@
   display: flex;
 
   @include md {
-
     flex-direction: column;
   }
 
@@ -79,14 +78,10 @@
   .sideContainer {
     flex: 2;
     background-color: #fcf5f3;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-    justify-content: center;
     @include md {
-      flex: none;
-      order: 99;
+      width: 100%;
+      display: block;
+      position: static;
     }
 
   }

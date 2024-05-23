@@ -86,9 +86,9 @@ function Estimate() {
             <div className="item">
               <label htmlFor="furniture">Furniture</label>
               <select name="furniture">
-                <option value="1">Cơ bản</option>
-                <option value="2">Cao cấp</option>
-                <option value="0">Không nội thất</option>
+                <option value="1">Basic</option>
+                <option value="2">Luxury</option>
+                <option value="0">No Furniture</option>
               </select>
             </div>
             <button className="sendButton" style={{ height: "50px" }}>

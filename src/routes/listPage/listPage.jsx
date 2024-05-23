@@ -9,6 +9,10 @@ function ListPage() {
   const data = useLoaderData();
   const [showMapView, setShowMapView] = useState(true);
 
+  const windowWidth = window.innerWidth;
+  const isBig = windowWidth > 1024 && windowWidth < 1366;
+
+
   return (
     <div className="listPage">
       <div className="listContainer">
@@ -28,7 +32,7 @@ function ListPage() {
             List View
           </button>
         </div>
-          {!showMapView &&  <Suspense fallback={<p>Loading...</p>}>
+          {!showMapView  &&  <Suspense fallback={<p>Loading...</p>}>
             <Await
               resolve={data.postResponse}
               errorElement={<p>Error loading posts!</p>}
@@ -43,8 +47,7 @@ function ListPage() {
         </div>
       </div>
       <div className="mapContainer">
-        <div>hello</div>
-        {showMapView && (
+        {showMapView  && (
           <Suspense fallback={<p>Loading...</p>}>
             <Await
               resolve={data.postResponse}

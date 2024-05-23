@@ -54,6 +54,11 @@ function Navbar() {
           <a href="/list?estateType=buy">Buy</a>
           <a href="/list?estateType=rent">Rent</a>
           <a href="/estimate">Estimate</a>
+          {currentUser && <a href="/profile">Profile</a>}
+          {!currentUser && <a href="/login">Sign in</a>}
+          {!currentUser && <a href="/register">Sign up</a> }
+
+
         </div>
       </div>
     </nav>

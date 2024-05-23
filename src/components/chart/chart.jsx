@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import { Pie } from "@ant-design/plots";
 
 const DemoPie = ({someData}) => {
-  console.log("hello shit", someData);
   const [chartSize, setChartSize] = useState({ width: 400, height: 300 });
 
   useEffect(() => {
@@ -99,7 +98,7 @@ const DemoPie = ({someData}) => {
     },
   };
 
-  return <Pie {...config} />;
+  return <Pie {...config} className="chart"/>;
 };
 
 export default DemoPie;

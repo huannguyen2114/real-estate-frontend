@@ -1,7 +1,7 @@
 @import "../../responsive.scss";
 
 .layout {
-  height: 100vh;
+  height: 100vh ;
   overflow: scroll;
   max-width: 1366px;
   margin-left: auto;
@@ -28,6 +28,7 @@
 
   .content {
     // flex: 1;
+    height: calc(100vh - 100px);
 
   }
 }

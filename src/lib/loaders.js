@@ -13,7 +13,7 @@ export const listPageLoader = async ({ request, params }) => {
 
   parsedQuery.delete("estateType");
   const newQuery = parsedQuery.toString();
-  const postPromise = apiRequest(`/posts/${estateType}?${newQuery}`);
+  const postPromise = apiRequest(`/posts/${estateType}?&currentPage=1&${newQuery}`);
   console.log(`/posts/${estateType}?${newQuery}`);
   return defer({
     postResponse: postPromise,
