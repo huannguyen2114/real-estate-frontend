@@ -129,25 +129,18 @@ button {
     padding: 0.625rem;
     border-radius: 0.5rem;
     margin: 2.5rem auto;
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
-    height: 100%;
+    height: 100vh;
     overflow: scroll;
 
-    @include md {
-      display: block;
-      width: 100%;
-    }
+
     .mapContainer{
       height: 100%;
       display: block;
-      @include md {
-        height: 300px;
-        display: block;
-      }
+
     }
   }
 }
